@@ -1,0 +1,48 @@
+bulbasaur:
+  id: 1
+  name: "bulbasaur"
+  height: 7
+  weight: 69
+  species: "bulbasaur"
+  hp: 45
+  attack: 49
+  defense: 49
+  special_attack: 65
+  special_defense: 65
+  speed: 65
+  sprite_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+  abilities: ["overgrow", "chlorophyll"]
+  types: ["grass", "poison"]
+  description: "A strange seed was planted on its back at birth.The plant sprouts and grows with this Pokémon."
+ivysaur:
+  id: 2
+  name: "ivysaur"
+  height: 10
+  weight: 130
+  species: "ivysaur"
+  hp: 60
+  attack: 62
+  defense: 63
+  special_attack: 80
+  special_defense: 80
+  speed: 80
+  sprite_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
+  abilities: ["overgrow", "chlorophyll"]
+  types: ["grass", "poison"]
+  description: "When the bulb on its back grows large, it  appearsto lose the ability to stand on its hind legs."
+venusaur:
+  id: 3
+  name: "venusaur"
+  height: 20
+  weight: 1000
+  species: "venusaur"
+  hp: 80
+  attack: 82
+  defense: 83
+  special_attack: 100
+  special_defense: 100
+  speed: 100
+  sprite_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+  abilities: ["overgrow", "chlorophyll"]
+  types: ["grass", "poison"]
+  description: "The plant blooms when it is absorbing  solarenergy. It stays on the move to seek sunlight."
