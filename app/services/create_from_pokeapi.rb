@@ -39,7 +39,9 @@ class CreateFromPokeapi
   def fetch_description_from_pokemon_species(pokemon_id)
     species_data = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon-species/#{pokemon_id}"))
     species_data["flavor_text_entries"].each do |text_entry|
-      return text_entry["flavor_text"].gsub("\n", " ").gsub("POKéMON", "Pokémon").delete("\f") if text_entry.dig("language", "name") == "en"
+      if text_entry.dig("language", "name") == "en"
+        return text_entry["flavor_text"].gsub("\n", " ").gsub("POKéMON", "Pokémon").delete("\f")
+      end
     end
   end
 end
