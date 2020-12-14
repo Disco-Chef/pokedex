@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_195751) do
+ActiveRecord::Schema.define(version: 2020_12_14_203123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_195751) do
     t.integer "attack"
     t.integer "defense"
     t.integer "special_attack"
-    t.integer "special_defence"
+    t.integer "special_defense"
     t.integer "speed"
     t.string "sprite_url"
     t.datetime "created_at", precision: 6, null: false
