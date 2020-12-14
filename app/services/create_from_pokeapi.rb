@@ -9,6 +9,7 @@ class CreateFromPokeapi
       pokemon_data = JSON.parse(RestClient.get("#{@base_url}/#{pokemon_id}"))
       pokemon_build_attributes = {
         name: pokemon_data['name'],
+        description: fetch_description_from_pokemon_species(pokemon_id),
         abilities: build_array_attribute(pokemon_data, "ability"),
         height: pokemon_data['height'],
         weight: pokemon_data['weight'],
@@ -32,6 +33,13 @@ class CreateFromPokeapi
       return  [array_from_data.first[attribute]['name']]
     else
       return  [array_from_data.first[attribute]['name'], array_from_data.last[attribute]['name']]
+    end
+  end
+
+  def fetch_description_from_pokemon_species(pokemon_id)
+    species_data = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon-species/#{pokemon_id}"))
+    species_data["flavor_text_entries"].each do |text_entry|
+      return text_entry["flavor_text"].gsub("\n", " ").gsub("POKéMON", "Pokémon").delete("\f") if text_entry.dig("language", "name") == "en"
     end
   end
 end
