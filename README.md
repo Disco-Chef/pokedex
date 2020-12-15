@@ -1,3 +1,5 @@
+Hosted at http://disco-pokedex.herokuapp.com/
+
 # Study Advisor - test
 ## Setup
   - tbc
