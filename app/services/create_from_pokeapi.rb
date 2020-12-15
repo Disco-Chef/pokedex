@@ -2,8 +2,8 @@ class CreateFromPokeapi
   #will expand and make it more modular if I find i need to get data from other objects (possibly held items, moves etc?)
   def create_pokemon(pokemon_count = nil)
     # limit to "regular" pokemon that I 'member, for now. Won't deal with all the new pokemon names with with all the dashes and forms. Yet.
-    # need to skip from 898 to 1001
-    all_pokemon_count = 898
+    # need to skip from 893 to 1001
+    all_pokemon_count = 893
     @base_url = 'https://pokeapi.co/api/v2/pokemon'
     (1..(pokemon_count.nil? ? all_pokemon_count : pokemon_count)).to_a.each do |pokemon_id|
       pokemon_data = JSON.parse(RestClient.get("#{@base_url}/#{pokemon_id}"))
@@ -21,9 +21,9 @@ class CreateFromPokeapi
         special_defense: pokemon_data['stats'][4]['base_stat'],
         speed: pokemon_data['stats'][4]['base_stat'],
         types: build_array_attribute(pokemon_data, "type"),
-        sprite_url: pokemon_data['sprites']['front_default']
+        sprite_url: pokemon_data['sprites']['other']['official-artwork']['front_default']
       }
-      Pokemon.create(pokemon_build_attributes)
+      p Pokemon.create(pokemon_build_attributes)
     end
   end
 
@@ -40,7 +40,7 @@ class CreateFromPokeapi
     species_data = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon-species/#{pokemon_id}"))
     species_data["flavor_text_entries"].each do |text_entry|
       if text_entry.dig("language", "name") == "en"
-        return text_entry["flavor_text"].gsub("\n", " ").gsub("POKéMON", "Pokémon").delete("\f")
+        return text_entry["flavor_text"].gsub("\n", " ").gsub("POKéMON", "Pokémon").gsub("\f", " ")
       end
     end
   end

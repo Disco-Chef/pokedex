@@ -1,7 +1,9 @@
 <div class="content">
   <% @pokemons.each do |pokemon| %>
     <%= link_to pokemon_path(pokemon), class: "card" do %>
-      <%= image_tag "#{pokemon.sprite_url}" %>
+      <div class="img-top">
+        <%= image_tag "#{pokemon.sprite_url}" %>
+      </div>
       <div class="name"><%= pokemon.name.capitalize %></div>
     <% end %>
   <% end %>
