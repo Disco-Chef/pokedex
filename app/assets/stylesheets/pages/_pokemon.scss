@@ -55,6 +55,27 @@ body {
   text-align: justify;
 }
 
+.pokemon-stats {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+.swords {
+  height: 16px;
+  width: 16px;
+}
+.stat-container {
+  display: flex;
+  align-items: center;
+}
+
+.special-stats {
+  display: flex;
+}
+.stat {
+  margin-left: 4px;
+}
+
 @media (max-width: 400px) {
   #sprite-half {
     height: 150px
