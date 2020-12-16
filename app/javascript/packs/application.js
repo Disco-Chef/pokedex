@@ -32,3 +32,32 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+let myStorage = window.sessionStorage;
+
+console.log(myStorage);
+
+const toggleFavorite = () => {
+  let idElement = document.querySelector("#pokemon-id");
+  let pokemonId = idElement.textContent.replace("#", "");
+  if (!myStorage.favorites) {
+    myStorage.favorites = pokemonId;
+    console.log(myStorage.favorites);
+  }
+  else if (myStorage.favorites && myStorage.favorites.split(",").includes(pokemonId)) {
+    let favoritesArray = myStorage.favorites.split(",");
+    let favoriteToRemoveIndex = myStorage.favorites.split(",").indexOf(pokemonId);
+    favoritesArray.splice(favoriteToRemoveIndex, 1);
+    myStorage.favorites = favoritesArray.join(",");
+    console.log(myStorage.favorites);
+  }
+  else if (myStorage.favorites && !myStorage.favorites.includes(pokemonId)) {
+    myStorage.favorites += `,${pokemonId}`;
+    console.log(myStorage.favorites);
+  } 
+}
+
+
+const buttonFavorite = document.querySelector('#button-favorite');
+if (buttonFavorite) {
+  buttonFavorite.addEventListener('click', toggleFavorite);
+}

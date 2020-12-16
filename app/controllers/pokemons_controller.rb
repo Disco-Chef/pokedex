@@ -6,7 +6,7 @@ class PokemonsController < ApplicationController
       # ".. OR description ILIKE :query" too?
       sql_query = "name ILIKE :query"
       @pokemons = Pokemon.where(sql_query, query: "%#{params[:query]}%")
-    else 
+    else
       @pokemons = Pokemon.all
     end
   end
