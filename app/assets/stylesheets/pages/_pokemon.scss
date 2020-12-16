@@ -25,14 +25,14 @@ body {
   font-size: 32px;
   font-weight: bolder;
   color: white;
-  text-shadow: 1px 1px 1px rgb(49, 49, 49);
+  text-shadow: 1px 1px 1px rgb(168, 168, 168);
 }
 
-#pokemon-id {
+#pokemon-show-id {
   text-align: right;
   color: white;
   font-size: 42px;
-  text-shadow: 1px 1px 1px rgb(49, 49, 49);
+  text-shadow: 1px 1px 1px rgb(168, 168, 168);
   padding-right: 15px;
 }
 
@@ -113,8 +113,5 @@ body {
   #pokemon-name {
     margin-top: 15px;
     margin-bottom: 8px;
-  }
-  #pokemon-id {
-    font-size: 36px;
   }
 }
