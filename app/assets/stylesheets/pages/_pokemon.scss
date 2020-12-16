@@ -33,6 +33,7 @@ body {
   color: white;
   font-size: 42px;
   text-shadow: 1px 1px 1px rgb(49, 49, 49);
+  padding-right: 15px;
 }
 
 #pokemon-types {
@@ -61,10 +62,12 @@ body {
 #pokemon-description {
   font-size: 18px;
   text-align: justify;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .pokemon-stats {
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
 }
