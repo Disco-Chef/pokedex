@@ -18,7 +18,7 @@ Hosted at http://disco-pokedex.herokuapp.com/
 
 ## Main functionality
 
-   - [ ] A user can browse individual pokemons
+   - [X] A user can browse individual pokemons
    - [ ] A user can add pokemons to their favorites (no need to save to db, but should be mantained in session) 
   
 ## Bonus
