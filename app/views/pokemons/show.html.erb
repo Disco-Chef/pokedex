@@ -3,7 +3,7 @@
   <%#= button_to "delete", {:controller => :static_pages, :action => 'fresh'}, :method => :get %>
   <%= image_tag "#{@pokemon.sprite_url}", id: "pokemon-sprite" %>
 </div>
-<div id="pokemon-id">#<%= @pokemon.id %></div>
+<div id="pokemon-show-id">#<%= @pokemon.id %></div>
 <div id="info-half">
   <div id="pokemon-name">
     <%= @pokemon.name.capitalize %>
@@ -60,6 +60,8 @@
     </div>
     
   </div>
-  <button id="button-favorite">Favorite</button>
+  <%# empty heart "far fa-heart" %>
+  <%# red heart "<i class="fas fa-heart"></i>" %>
+  <i data-pokemon-id="<%= @pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart"></i>
 </div>
 

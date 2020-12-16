@@ -30,34 +30,91 @@ import "bootstrap";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  setFavoriteButtonType();
+  loadFavoritizor();
 });
-let myStorage = window.sessionStorage;
 
+let myStorage = window.sessionStorage;
 console.log(myStorage);
 
-const toggleFavorite = () => {
-  let idElement = document.querySelector("#pokemon-id");
-  let pokemonId = idElement.textContent.replace("#", "");
+const setFavoritesArray = () => {
+  let favoritesArray;
+  if (myStorage.favorites && myStorage.favorites.includes(",")) {
+    favoritesArray = myStorage.favorites.split(",");
+    return favoritesArray;
+  }
+  else if (myStorage.favorites && !myStorage.favorites.includes(",")) {
+    favoritesArray = new Array(myStorage.favorite);
+    return favoritesArray;
+  }
+}
+setFavoritesArray();
+
+const setFavoriteButtonType = () => {
+  let buttonToggleFavorite = document.querySelectorAll('.button-toggle-favorite');
+  if (myStorage.favorites) {
+    let favoritesArray = setFavoritesArray();
+    let elementPokemonId = document.querySelectorAll(".pokemon-id");
+    // if we are on show page and there is only one id element:
+    if (elementPokemonId.length === 1) {
+      let pokemonId = elementPokemonId[0].dataset.pokemonId;
+      let favoritesArray = setFavoritesArray();
+      console.log(elementPokemonId)
+      if (favoritesArray.includes(pokemonId)) {
+        buttonToggleFavorite[0].classList.remove("far");
+        buttonToggleFavorite[0].classList.add("fas");
+        buttonToggleFavorite[0].style.color = "red";
+      }
+    }
+    // if we are on index: trickier, need to sibling-child/parent-sibling-hop
+    else {
+      console.log(favoritesArray)
+      favoritesArray.forEach((favoriteId) => {
+        let buttonHeart = document.getElementById(favoriteId);
+        buttonHeart.classList.remove("far");
+        buttonHeart.classList.add("fas");
+        buttonHeart.style.color = "red";
+      })
+    }
+  }
+}
+
+const toggleFavorite = (event) => {
+  console.log("Event Triggered! 😉")
+  // set favoritesArray. can't split if only one element
+  let favoritesArray = setFavoritesArray();
+  let pokemonId = event.currentTarget.dataset.pokemonId;
   if (!myStorage.favorites) {
     myStorage.favorites = pokemonId;
+    event.currentTarget.classList.add("fas");
+    event.currentTarget.classList.remove("far");
+    event.currentTarget.style.color = "red";
     console.log(myStorage.favorites);
+    let favoritesArray = new Array(myStorage.favorites);
   }
-  else if (myStorage.favorites && myStorage.favorites.split(",").includes(pokemonId)) {
-    let favoritesArray = myStorage.favorites.split(",");
-    let favoriteToRemoveIndex = myStorage.favorites.split(",").indexOf(pokemonId);
+  else if (myStorage.favorites && favoritesArray.includes(pokemonId)) {
+    let favoriteToRemoveIndex = favoritesArray.indexOf(pokemonId);
     favoritesArray.splice(favoriteToRemoveIndex, 1);
     myStorage.favorites = favoritesArray.join(",");
+    event.currentTarget.classList.remove("fas");
+    event.currentTarget.classList.add("far");
+    event.currentTarget.style.color = "#0E0000";
     console.log(myStorage.favorites);
   }
-  else if (myStorage.favorites && !myStorage.favorites.includes(pokemonId)) {
+  else if (myStorage.favorites && !favoritesArray.includes(pokemonId)) {
     myStorage.favorites += `,${pokemonId}`;
+    event.currentTarget.classList.add("fas");
+    event.currentTarget.classList.remove("far");
+    event.currentTarget.style.color = "red";
     console.log(myStorage.favorites);
   } 
 }
 
-
-const buttonFavorite = document.querySelector('#button-favorite');
-if (buttonFavorite) {
-  buttonFavorite.addEventListener('click', toggleFavorite);
+const loadFavoritizor = () => {
+  let buttonToggleFavorite = document.querySelectorAll('.button-toggle-favorite');
+  if (buttonToggleFavorite) {
+    buttonToggleFavorite.forEach((button) => {
+      button.addEventListener('click', toggleFavorite);
+    })
+  }
 }
