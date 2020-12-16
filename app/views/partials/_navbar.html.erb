@@ -1,0 +1,29 @@
+    <div class="navbar navbar-expand-sm navbar-light navbar-disco-pokedex">
+      <%= link_to root_path, class: "navbar-brand" do%>
+        <i class="fas fa-home"></i>
+      <% end %>
+      <%= form_tag pokemons_path, method: :get, id: "pokemon-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find Pokemon"
+        %>
+        <%= submit_tag "Search", class: "btn btn-warning" %>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <div id="go-to-favorites-button" class="fav-button nav-link">Favorites</div>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Pokedex", root_path, class: "dropdown-item" %>
+              <div id="go-to-favorites-button" class="fav-button dropdown-item">Favorites</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>

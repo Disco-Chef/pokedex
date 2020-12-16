@@ -14,6 +14,15 @@ class PokemonsController < ApplicationController
   def show
   end
 
+  def send_favorites
+    # raise
+    # redirect_to favorites_path
+  end
+
+  def favorites
+
+  end
+
   private
 
   def set_pokemon

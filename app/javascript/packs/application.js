@@ -32,10 +32,27 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   setFavoriteButtonType();
   loadFavoritizor();
+  triggerFavoritesButton();
 });
 
 let myStorage = window.sessionStorage;
 console.log(myStorage);
+
+const sendFavoritesInternalFetch = (event) => {
+  console.log(" Coming Soon™... ")
+  // fetch("http://localhost:3000/pokemons/favorites", {
+  //   method: "POST",
+  //   body: JSON.stringify({"favorites": setFavoritesArray()})
+  // })
+}
+
+const triggerFavoritesButton = () => {
+  const linksToFavorites = document.querySelectorAll(".fav-button");
+  linksToFavorites.forEach((button) => {
+    button.addEventListener('click', sendFavoritesInternalFetch);
+  })
+}
+
 
 const setFavoritesArray = () => {
   let favoritesArray;
@@ -59,7 +76,6 @@ const setFavoriteButtonType = () => {
     if (elementPokemonId.length === 1) {
       let pokemonId = elementPokemonId[0].dataset.pokemonId;
       let favoritesArray = setFavoritesArray();
-      console.log(elementPokemonId)
       if (favoritesArray.includes(pokemonId)) {
         buttonToggleFavorite[0].classList.remove("far");
         buttonToggleFavorite[0].classList.add("fas");
@@ -68,7 +84,6 @@ const setFavoriteButtonType = () => {
     }
     // if we are on index: trickier, need to sibling-child/parent-sibling-hop
     else {
-      console.log(favoritesArray)
       favoritesArray.forEach((favoriteId) => {
         let buttonHeart = document.getElementById(favoriteId);
         buttonHeart.classList.remove("far");
@@ -90,7 +105,6 @@ const toggleFavorite = (event) => {
     event.currentTarget.classList.remove("far");
     event.currentTarget.style.color = "red";
     console.log(myStorage.favorites);
-    let favoritesArray = new Array(myStorage.favorites);
   }
   else if (myStorage.favorites && favoritesArray.includes(pokemonId)) {
     let favoriteToRemoveIndex = favoritesArray.indexOf(pokemonId);
