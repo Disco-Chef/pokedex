@@ -3,7 +3,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   height: 100vh;
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FwMbJs4L.jpg&f=1&nofb=1");
+  background-color: #2E2C2C;
   background-size: cover;
 }
 
@@ -24,10 +24,13 @@ body {
   margin-bottom: 10px;
   font-size: 32px;
   font-weight: bolder;
+  color: white;
+  text-shadow: 1px 1px 1px rgb(49, 49, 49);
 }
 
 #pokemon-id {
   text-align: right;
+  color: white;
   font-size: 42px;
   text-shadow: 1px 1px 1px rgb(49, 49, 49);
 }
@@ -51,6 +54,8 @@ body {
 #info-half {
   width: 400px;
   margin: auto;
+  color: white;
+  text-shadow: 1px 1px 1px rgb(49, 49, 49);
 }
 
 #pokemon-description {
@@ -63,25 +68,37 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+.half-side {
+  width: 100px;
+}
+
 .swords {
   height: 16px;
   width: 16px;
+  padding-left: 4px;
+  filter: invert(100%) sepia(1%) saturate(7500%) hue-rotate(289deg) brightness(102%) contrast(101%);
 }
 .stat-container {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+}
+.fas {
+  padding-left: 4px;
 }
 
 .special-stats {
   display: flex;
 }
+
 .stat {
   margin-left: 4px;
 }
 
 @media (max-width: 400px) {
   #sprite-half {
-    height: 150px
+    height: 150px;
   }
   #info-half {
     width: 100vw;

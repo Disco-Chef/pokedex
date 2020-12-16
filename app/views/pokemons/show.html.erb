@@ -25,38 +25,39 @@
   </div>
   <div class="pokemon-stats">
   
-    <div class="left-side">
+    <div class="half-side">
       <div class="stat-container">
         <i class="fas fa-heartbeat"></i>
-        <div class="stat hp"> <%= @pokemon.hp %></div>
+        <div class="stat hp"><%= @pokemon.hp %></div>
       </div>
       <div class="stat-container">
-        <%= image_tag "swords" , class: "swords"%>
-        <div class="stat atk"> <%= @pokemon.attack %></div>
+        <%= image_tag "swords.png" , class: "swords"%>
+        <div class="stat atk"><%= @pokemon.attack %></div>
       </div>
       <div class="stat-container">
         <i class="fas fa-shield-alt"></i>
-        <div class="stat def"> <%= @pokemon.defense %></div>
+        <div class="stat def"><%= @pokemon.defense %></div>
       </div>
     </div>
     
-    <div class="right-side">
+    <div class="half-side">
       <div class="stat-container">
         <div class="special-stats">
-          <i class="fas fa-star"></i>
-          <%= image_tag "swords" , class: "swords"%>
+          <i class="fas fa-star"></i><%= image_tag "swords" , class: "swords"%>
         </div>
-        <div class="stat sp-atk"> <%= @pokemon.special_attack %></div>
+        <div class="stat sp-atk"><%= @pokemon.special_attack %></div>
       </div>
       <div class="stat-container">
         <div class="special-stats">
           <i class="fas fa-star"></i><i class="fas fa-shield-alt"></i>
         </div>
-        <div class="stat sp-def"> <%= @pokemon.special_defense %></div>
+        <div class="stat sp-def"><%= @pokemon.special_defense %></div>
       </div>
       <div class="stat-container">
-        <i class="fas fa-paw"></i>
-        <div class="stat speed"> <%= @pokemon.speed %></div>
+        <div class="special-stats">
+          <i class="fas fa-paw"></i><i class="fas fa-tachometer-alt"></i>
+        </div>
+        <div class="stat speed"><%= @pokemon.speed %></div>
       </div>
     </div>
     
