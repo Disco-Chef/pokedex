@@ -1,0 +1,14 @@
+#pokemon-form {
+  display: flex;
+  margin-left: 6vw;
+}
+
+.form-control {
+  width: 150px;
+}
+
+@media (max-width: 400px) {
+  #pokemon-form {
+    margin-left: 0px;
+  }
+}
