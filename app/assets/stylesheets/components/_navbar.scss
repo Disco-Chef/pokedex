@@ -8,13 +8,37 @@
 }
 
 .navbar-disco-pokedex .navbar-brand img {
-  width: 40px;
+  width: 70px;
 }
 
 .navbar-nav {
   align-items: flex-end;
 }
 
+.fa-github-square {
+  font-size: 32px;
+}
+
 .navbar-nav > .nav-item {
   border-bottom: 1px solid rgb(17, 17, 17);
+}
+
+
+@media (max-width: 400px) {
+  .simple_form {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+  }
+  #search_type {
+    width: 140px;
+  }
+  #search_name {
+    width: 140px;
+    font-size: 16px;
+  }
+
+  .btn-warning {
+    width: 140px;
+  }
 }

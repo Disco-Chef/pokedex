@@ -1,13 +1,14 @@
 <% type_colors = {"normal" => "#A8A878", "fighting" => "#C03028", "flying" => "#A890F0", "poison" => "#A040A0", "ground" => "#E0C068", "rock" => "#705898", "bug" => "#A8B820", "ghost" => "#705898", "steel" => "#FFFFFF", "fire" => "#F08030", "water" => "#6890F0", "grass" => "#78C850", "electric" => "#98D8D8", "psychic" => "#F85888", "ice" => "#98D8D8", "dragon" => "#7038F8", "dark" => "#705848", "fairy" => "#EE99AC" } %>
-<div id="sprite-half" style="background-color: <%= type_colors[@pokemon.types.first.name] %>">
+<div id="sprite-half" style="background-color: #06D6A0">
   <%#= button_to "delete", {:controller => :static_pages, :action => 'fresh'}, :method => :get %>
   <%= image_tag "#{@pokemon.sprite_url}", id: "pokemon-sprite" %>
 </div>
-<div id="pokemon-show-id">#<%= @pokemon.id %></div>
 <div id="info-half">
+  <div id="pokemon-show-id">#<%= @pokemon.id %></div>
   <div id="pokemon-name">
     <%= @pokemon.name.capitalize %>
   </div>
+  <i data-pokemon-id="<%= @pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart heart"></i>
   <div id="pokemon-types">
     <div class="type" style="background-color: <%= type_colors[@pokemon.types.first.name] %>">
       <%= @pokemon.types.first.name.capitalize %>
@@ -62,6 +63,5 @@
   </div>
   <%# empty heart "far fa-heart" %>
   <%# red heart "<i class="fas fa-heart"></i>" %>
-  <i data-pokemon-id="<%= @pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart"></i>
 </div>
 
