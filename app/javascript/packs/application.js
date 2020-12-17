@@ -54,7 +54,7 @@ setFavoritesArray();
 const addFavoriteStyle = (domObject) => {
   domObject.classList.add("fas");
   domObject.classList.remove("far");
-  domObject.style.color = "red";
+  domObject.style.color = "#DB324D";
 }
 
 const removeFavoriteStyle = (domObject) => {

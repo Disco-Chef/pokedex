@@ -2,7 +2,7 @@ class CreateFromPokeapi
   #will expand and make it more modular if I find i need to get data from other objects (possibly held items, moves etc?)
   def create_pokemon(pokemon_count = nil)
     # limit to "regular" pokemon that I 'member, for now. Won't deal with all the new pokemon names with with all the dashes and forms. Yet.
-    create_types()
+    create_types
     all_pokemon_count = 893
     (1..(pokemon_count.nil? ? all_pokemon_count : pokemon_count)).to_a.each do |pokemon_id|
       pokemon_data = JSON.parse(RestClient.get("#{@base_url}/pokemon/#{pokemon_id}"))

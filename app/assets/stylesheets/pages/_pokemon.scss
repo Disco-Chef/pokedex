@@ -3,7 +3,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   height: 100vh;
-  background-color: #2E2C2C;
+  background-color: #3C3C3C;
   background-size: cover;
 }
 
@@ -21,35 +21,34 @@ body {
 
 #pokemon-name {
   margin-top: 15px;
-  margin-bottom: 10px;
   font-size: 32px;
   font-weight: bolder;
   color: white;
-  text-shadow: 1px 1px 1px rgb(168, 168, 168);
+  text-shadow: 1px 1px 1px #A8A8A8;
 }
 
 #pokemon-show-id {
-  text-align: right;
+  text-align: left;
   color: white;
   font-size: 42px;
-  text-shadow: 1px 1px 1px rgb(168, 168, 168);
-  padding-right: 15px;
+  text-shadow: 1px 1px 1px #A8A8A8;
+  padding-left: 20px;
 }
 
 #pokemon-types {
-  width: 40%;
   font-size: 18px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin-bottom: 16px;
 }
 .type {
-  margin-left: 5vw;
-  margin-right: 5vw;
   padding: 3px;
-  border: medium solid rgb(44, 44, 44);
+  width: 90px;
+  margin-right: 10px;
+  border: 2px solid #2C2C2C;
   border-radius: 9px;
 }
 #info-half {
@@ -82,13 +81,21 @@ body {
   padding-left: 4px;
   filter: invert(100%) sepia(1%) saturate(7500%) hue-rotate(289deg) brightness(102%) contrast(101%);
 }
+
 .stat-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
 }
+
 .fas {
   padding-left: 4px;
+}
+
+.heart {
+  position: relative;
+  top: -20px;
+  left: 120px;
+  font-size: 32px;
 }
 
 .special-stats {
