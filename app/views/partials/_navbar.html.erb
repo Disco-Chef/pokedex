@@ -2,12 +2,11 @@
   <%= link_to root_path, class: "navbar-brand" do%>
     <i class="fas fa-home"></i>
   <% end %>
-
   <div id='pokemon-search'>
-    <%= simple_form_for pokemons_path, method: :get, wrapper: :inline_form, html: {class: "form-inline"} do |f| %>
-      <%= f.input :name, as: :string, input_html: { class: "search-field mr-2" }, placeholder: "Find Pokemon" %>
-      <%= f.input :type, as: :select, :collection => ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"], input_html: { class: "mr-2" }, prompt: "Type" %>
-      <%= f.submit "Apply filters", class: "btn btn-warning" %>
+    <%= simple_form_for :search, method: :get, url: :pokemons, wrapper: :inline_form, html: {class: "form-inline"} do |f| %>
+      <%= f.input :name, as: :string, input_html: { class: " mr-2" }, placeholder: "Find Pokemon" %>
+      <%= f.input :type, as: :select, :collection => ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"].sort, input_html: { class: "mr-2" }, prompt: "Type" %>
+      <%= f.submit "Filter", class: "btn btn-warning" %>
     <% end %>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -44,7 +44,7 @@ const setFavoritesArray = () => {
     return favoritesArray;
   }
   else if (myStorage.favorites && !myStorage.favorites.includes(",")) {
-    favoritesArray = new Array(myStorage.favorite);
+    favoritesArray = new Array(myStorage.favorites);
     return favoritesArray;
   }
 }
@@ -65,22 +65,22 @@ const removeFavoriteStyle = (domObject) => {
 
 const setFavoriteButtonType = () => {
   let buttonToggleFavorite = document.querySelectorAll('.button-toggle-favorite');
-  
   if (myStorage.favorites) {
     let favoritesArray = setFavoritesArray();
     let elementPokemonId = document.querySelectorAll(".pokemon-id");
     // if we are on show page and there is only one id element:
     if (elementPokemonId.length === 1) {
       let pokemonId = elementPokemonId[0].dataset.pokemonId;
-      let favoritesArray = setFavoritesArray();
       if (favoritesArray.includes(pokemonId)) {
         addFavoriteStyle(buttonToggleFavorite[0]);
       }
     }
     else {
-      favoritesArray.forEach((favoriteId) => {
-        let buttonHeart = document.getElementById(favoriteId);
-        addFavoriteStyle(buttonHeart);
+      console.log(setFavoritesArray());
+      elementPokemonId.forEach((heartIcon) => {
+        if (favoritesArray.includes(heartIcon.dataset.pokemonId)) {
+          addFavoriteStyle(heartIcon)
+        }
       })
     }
   }

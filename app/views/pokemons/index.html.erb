@@ -1,13 +1,25 @@
 <div class="content">
-  <% @pokemons.each do |pokemon| %>
-    <div class="card">
-      <i id="<%= pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart" style="width: 100%; text-align: right; margin-top: 6px; margin-right: 6px;" data-pokemon-id="<%= pokemon.id %>"></i>
-      <%= link_to pokemon_path(pokemon) do %>
-          <div class="img-top">
-            <%= image_tag "#{pokemon.sprite_url}" %>
-          </div>
-        <div class="name"><%= pokemon.name.capitalize %></div>
-      <% end %>
+  <% if @pokemons %>
+    <% @pokemons.each do |pokemon| %>
+      <div class="card">
+        <i id="<%= pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart" style="width: 100%; text-align: right; margin-top: 6px; margin-right: 6px;" data-pokemon-id="<%= pokemon.id %>"></i>
+        <%= link_to pokemon_path(pokemon) do %>
+            <div class="img-top">
+              <%= image_tag "#{pokemon.sprite_url}" %>
+            </div>
+          <div class="name"><%= pokemon.name.capitalize %></div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+  <div id="no-results" class="content align-items-center">
+    <div id="no-results-card">
+      <div class="hal">
+        <div id="1" class="pokemon-id button-toggle-favorite" style="width: 100%; text-align: right; margin-top: 6px; margin-right: 6px;" data-pokemon-id="1">
+        </div>
+      </div>  
+      <div id="no-results-text">No results..</div>
     </div>
   <% end %>
 </div>
+
