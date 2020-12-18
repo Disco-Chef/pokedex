@@ -7,21 +7,21 @@
   <div id="pokemon-show-id">#<%= @pokemon.id %></div>
   <div id="pokemon-name">
     <%= link_to "#{pokemon_path(@pokemon.id - 1)}" do %>
-      <i class="fas fa-angle-double-left"></i>
+      <i class="fas fa-angle-double-left" style="padding-right: 4px;"></i>
     <% end %>
     <%= @pokemon.name.capitalize %>
     <%= link_to "#{pokemon_path(@pokemon.id + 1)}" do %>
-      <i class="fas fa-angle-double-right"></i>
+      <i class="fas fa-angle-double-right" style="padding-right: 4px;"></i>
     <% end %>
   </div>
   <i data-pokemon-id="<%= @pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart heart"></i>
   <div id="pokemon-types">
     <div class="type" style="background-color: <%= type_colors[@pokemon.types.first.name] %>">
-      <%= @pokemon.types.first.name.capitalize %>
+      <%= link_to @pokemon.types.first.name.capitalize, pokemons_path(search: {"name" => nil, "type" => @pokemon.types.first.name})  %>
     </div>
     <% if @pokemon.types.count > 1 %>
     <div class="type" style="background-color: <%= type_colors[@pokemon.types.last.name] %>">
-      <%= @pokemon.types.last.name.capitalize %>
+      <%= link_to @pokemon.types.last.name.capitalize, pokemons_path(search: {"name" => nil, "type" => @pokemon.types.last.name})  %>
     </div>
     <% end %>
   </div>
@@ -67,6 +67,9 @@
     </div>
   </div>
   <div class="evolution-content">
+    <% if !@evolution_chain[:second].present? %>
+      <div class="cant-evolve-text">Sadly, this Pokemon is the only link in its evolution chain 😞</div>
+    <% end %>
     <div id="chain-header">Evolution Chain:</div>
     <% @evolution_chain.each do |level, pokemons_in_level| %>
       <% if pokemons_in_level.present? %>
