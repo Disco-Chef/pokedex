@@ -6,7 +6,13 @@
 <div id="info-half">
   <div id="pokemon-show-id">#<%= @pokemon.id %></div>
   <div id="pokemon-name">
+    <%= link_to "#{pokemon_path(@pokemon.id - 1)}" do %>
+      <i class="fas fa-angle-double-left"></i>
+    <% end %>
     <%= @pokemon.name.capitalize %>
+    <%= link_to "#{pokemon_path(@pokemon.id + 1)}" do %>
+      <i class="fas fa-angle-double-right"></i>
+    <% end %>
   </div>
   <i data-pokemon-id="<%= @pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart heart"></i>
   <div id="pokemon-types">
