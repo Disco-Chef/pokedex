@@ -15,24 +15,11 @@ Hosted at http://disco-pokedex.herokuapp.com/
           echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
           sudo apt-get update && sudo apt-get install yarn
         ```
-    - [Bundler](https://bundler.io/):
+    - [Bundler](https://bundler.io/) :
       - `gem install bundler`
   - Still from within `pokedex` folder, run:
     - `bundle;yarn;rails db:create db:migrate db:seed`
   - Go on [localhost:3000](http://localhost:3000) and browse through pokemon to your heart's content!
-## Guidelines
-  - Fork this repository
-  - You can add any framework, library or plugin you'd like
-  - In short: Do whatever you want to get the job done
-  - Make sure the application works out-of-the box once you're done
-  - Push changes to your git fork
-  - Add a short description on how to run your program in the Setup section above
-  - Check the finished features in the Assignment and Bonus section by putting an 'X' ([X]) in between the brackets
-  - Quality over quantity, better half of the features 100% done, than 100% of the features half-done
-  - Assignment :
-    - You are asked to build a simple pokedex in react native and/or over web browser using this API: https://pokeapi.co/
-
-
 ## Main functionality
 
    - [X] A user can browse individual pokemons
