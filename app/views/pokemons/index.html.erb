@@ -1,8 +1,17 @@
+<% problematics = [892, 774, 778, 710, 645, 642, 641, 555, 550] %>
 <div class="content">
   <% if !@pokemons.empty? %>
     <% @pokemons.each do |pokemon| %>
       <div class="card">
-        <i id="<%= pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart" style="width: 100%; font-size: 24px; text-align: right; padding-top: 16px; padding-right: 16px;" data-pokemon-id="<%= pokemon.id %>"></i>
+        <div class="heart-container d-flex justify-content-between">
+          <div class="empty-div" style="color: lavender;"> </div>
+          <% if problematics.include?(pokemon.id) %>
+            <% problematics.delete(pokemon.id) %>
+            <i id="<%= pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart" style="font-size: 24px; top: 23px;" data-pokemon-id="<%= pokemon.id %>"></i>
+          <% else %>
+            <i id="<%= pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart" style="font-size: 24px;" data-pokemon-id="<%= pokemon.id %>"></i>
+          <% end %>
+        </div>
         <%= link_to pokemon_path(pokemon) do %>
             <div class="img-top">
               <%= image_tag "#{pokemon.sprite_url}" %>
