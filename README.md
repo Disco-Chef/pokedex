@@ -2,7 +2,24 @@ Hosted at http://disco-pokedex.herokuapp.com/
 
 # Study Advisor - test
 ## Setup
-  - tbc
+  ### Quickstart-Guide
+    * Clone this repository and enter the local repo folder:
+      * `$ git clone git@github.com:Disco-Chef/pokedex.git; cd pokedex`
+    * Install all the rails pre-requisites, if you do not have them:
+      * [Yarn](http://github.com) :
+        * OsX: 
+          `brew install yarn`
+        * Ubuntu: 
+          ```
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+            sudo apt-get update && sudo apt-get install yarn
+          ```
+      * [Bundler](https://bundler.io/):
+        - `gem install bundler`
+    * Still from within `pokedex` folder, run:
+      * `bundle;yarn;rails db:create db:migrate db:seed`
+    * Go on [localhost:3000](http://localhost:3000) and browse through pokemon to your heart's content!
 ## Guidelines
   - Fork this repository
   - You can add any framework, library or plugin you'd like
@@ -30,7 +47,7 @@ Hosted at http://disco-pokedex.herokuapp.com/
 ## Complicated Bonus
   Do this *only* if you have a lot of time to spare / the challenge was way to easy, it is not only not required or expected, it is a tough one. 
   
-   - [ ] A user can see the evolution chain of a pokemon
+   - [X] A user can see the evolution chain of a pokemon
 
 
 Some possible inspirations for the design of your apps: 

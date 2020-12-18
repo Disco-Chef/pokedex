@@ -2,7 +2,7 @@
   <% if !@pokemons.empty? %>
     <% @pokemons.each do |pokemon| %>
       <div class="card">
-        <i id="<%= pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart" style="width: 100%; text-align: right; margin-top: 6px; margin-right: 6px;" data-pokemon-id="<%= pokemon.id %>"></i>
+        <i id="<%= pokemon.id %>" class="pokemon-id button-toggle-favorite far fa-heart" style="width: 100%; font-size: 24px; text-align: right; padding-top: 16px; padding-right: 16px;" data-pokemon-id="<%= pokemon.id %>"></i>
         <%= link_to pokemon_path(pokemon) do %>
             <div class="img-top">
               <%= image_tag "#{pokemon.sprite_url}" %>

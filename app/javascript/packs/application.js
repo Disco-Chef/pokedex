@@ -93,6 +93,7 @@ const toggleFavorite = (event) => {
   if (!myStorage.favorites) {
     myStorage.favorites = pokemonId;
     addFavoriteStyle(event.currentTarget);
+    setFavoriteButtonType();
     console.log(myStorage.favorites);
   }
   else if (myStorage.favorites && favoritesArray.includes(pokemonId)) {
@@ -100,11 +101,13 @@ const toggleFavorite = (event) => {
     favoritesArray.splice(favoriteToRemoveIndex, 1);
     myStorage.favorites = favoritesArray.join(",");
     removeFavoriteStyle(event.currentTarget);
+    setFavoriteButtonType();
     console.log(myStorage.favorites);
   }
   else if (myStorage.favorites && !favoritesArray.includes(pokemonId)) {
     myStorage.favorites += `,${pokemonId}`;
     addFavoriteStyle(event.currentTarget);
+    setFavoriteButtonType();
     console.log(myStorage.favorites);
   } 
 }
