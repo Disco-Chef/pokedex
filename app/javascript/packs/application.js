@@ -59,7 +59,7 @@ const addFavoriteStyle = (domObject) => {
 const removeFavoriteStyle = (domObject) => {
   domObject.classList.remove("fas");
   domObject.classList.add("far");
-  domObject.style.color = "black"
+  domObject.style.color = "black";
 }
 
 const setFavoriteButtonType = () => {
