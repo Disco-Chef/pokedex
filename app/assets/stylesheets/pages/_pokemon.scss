@@ -93,7 +93,7 @@ body {
 
 .heart {
   position: relative;
-  top: -20px;
+  top: 0px;
   left: 120px;
   font-size: 32px;
 }
@@ -105,11 +105,43 @@ body {
 .stat {
   margin-left: 4px;
 }
+.evolution-content {
+  flex-direction: row;
+  margin-top: 15px;
+}
+
+#chain-header{
+  font-size: 32px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 1px 1px 1px #A8A8A8;
+}
+
+.column-first {
+  display: flex;
+  justify-content: center;
+}
+.column-second {
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.column-third {
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 @media (max-width: 400px) {
   #sprite-half {
     height: 150px;
   }
+  .evolution-content {
+
+  }
+
   #info-half {
     width: 100vw;
   }

@@ -21,6 +21,15 @@ class PokemonsController < ApplicationController
   end
 
   def show
+    @evolution_chain = {first: [], second: [], third: []}
+    @pokemon.evolution_chain.chain_json.each do |key, pokemon_array_in_level|
+      if pokemon_array_in_level.present?
+        pokemon_array_in_level.each do |species_name|
+          # pokeapi inconsistent naming. deoxys => deoxys-normal
+          @evolution_chain[key.to_sym] << Pokemon.find_by(species: species_name)
+        end
+      end
+    end
   end
 
   private
