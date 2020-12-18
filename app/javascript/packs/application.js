@@ -79,6 +79,8 @@ const setFavoriteButtonType = () => {
         if (favoritesArray.includes(heartIcon.dataset.pokemonId)) {
           addFavoriteStyle(heartIcon);
         }
+        else
+          removeFavoriteStyle(heartIcon);
       })
     }
   }

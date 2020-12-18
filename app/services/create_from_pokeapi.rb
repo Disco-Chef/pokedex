@@ -58,6 +58,7 @@ class CreateFromPokeapi
   end
 
   def create_evolution_chains
+    @base_url = 'https://pokeapi.co/api/v2'
     chain_hash = {}
     (1..470).to_a.each do |evolution_id|
       response = RestClient.get("#{@base_url}/evolution-chain/#{evolution_id}") { |response, request, result, &block|
