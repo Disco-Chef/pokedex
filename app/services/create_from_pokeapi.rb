@@ -71,12 +71,10 @@ class CreateFromPokeapi
             second_level_pokemons = []
             third_level_pokemons = []
             chain_data["chain"]["evolves_to"].each do |second_level_evolution|
-              second_level_pokemon = second_level_evolution["species"]["name"]
-              second_level_pokemons << second_level_pokemon
+              second_level_pokemons << second_level_evolution["species"]["name"]
               if second_level_evolution["evolves_to"].present?
                 second_level_evolution["evolves_to"].each do |third_level_evolution|
-                  third_level_pokemon = third_level_evolution["species"]["name"]
-                  third_level_pokemons << third_level_pokemon
+                  third_level_pokemons << third_level_evolution["species"]["name"]
                 end
               end
             end
