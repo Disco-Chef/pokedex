@@ -18,7 +18,7 @@ Hosted at http://disco-pokedex.herokuapp.com/
     - [Bundler](https://bundler.io/) :
       - `gem install bundler`
   - Still from within `pokedex` folder, run:
-    - `bundle;yarn;rails db:create db:migrate db:seed`
+    - `bundle;yarn;rails db:create db:migrate db:seed;rails s`
   - Go on [localhost:3000](http://localhost:3000) and browse through pokemon to your heart's content!
 ## Main functionality
 
