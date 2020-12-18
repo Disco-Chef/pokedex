@@ -10,7 +10,7 @@ class PokemonsController < ApplicationController
         @pokemons = Pokemon.joins(:types).where(sql_query, name: "%#{params[:search]["name"]}%", type: params[:search]["type"]).order(:id)
       elsif params[:search]["name"].present? && !params[:search]["type"].present?
         sql_query = "pokemons.name ILIKE :name"
-        @pokemons = Pokemon.joins(:types).where(sql_query, name: "%#{params[:search]["name"]}%").uniq.order(:id)
+        @pokemons = Pokemon.joins(:types).where(sql_query, name: "%#{params[:search]["name"]}%").order(:id).uniq
       elsif !params[:search]["name"].present? && params[:search]["type"].present?
         sql_query = "types.name LIKE :type"
         @pokemons = Pokemon.joins(:types).where(sql_query, type: params[:search]["type"]).order(:id)
