@@ -4,7 +4,7 @@ Hosted at http://disco-pokedex.herokuapp.com/
 ## Setup
 - If you wanna clone this project over and have fun with it locally, follow these:
   - Clone this repository and enter the local repo folder:
-    - `$ git clone git@github.com:Disco-Chef/pokedex.git; cd pokedex`
+    - `git clone git@github.com:Disco-Chef/pokedex.git; cd pokedex`
   - Install all the rails pre-requisites, if you do not have them:
     - [Yarn](http://github.com) :
       - OsX: 
