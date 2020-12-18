@@ -14,6 +14,8 @@ class PokemonsController < ApplicationController
       elsif !params[:search]["name"].present? && params[:search]["type"].present?
         sql_query = "types.name LIKE :type"
         @pokemons = Pokemon.joins(:types).where(sql_query, type: params[:search]["type"]).order(:id)
+      else
+        @pokemons = Pokemon.all.order(:id)
       end
     else
       @pokemons = Pokemon.all.order(:id)
