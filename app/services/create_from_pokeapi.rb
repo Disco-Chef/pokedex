@@ -21,9 +21,9 @@ class CreateFromPokeapi
         speed: pokemon_data['stats'][4]['base_stat'],
         sprite_url: pokemon_data['sprites']['other']['official-artwork']['front_default']
       }
-      p Pokemon.create(pokemon_build_attributes)
+      Pokemon.create(pokemon_build_attributes)
       pokemon_data['types'].each do |type|
-        p PokemonType.create(pokemon_id: pokemon_id, type_id: Type.find_by(name: type['type']['name']).id)
+        PokemonType.create(pokemon_id: pokemon_id, type_id: Type.find_by(name: type['type']['name']).id)
       end
     end
   end
@@ -35,10 +35,9 @@ class CreateFromPokeapi
       type_build_attributes = {
         name: type_data['name']
       }
-      p Type.create(type_build_attributes)
+      Type.create(type_build_attributes)
     end
   end
-  
 
   def build_array_attribute(data_hash, attribute)
     array_from_data = data_hash[attribute.pluralize]
@@ -60,7 +59,6 @@ class CreateFromPokeapi
 
   def create_evolution_chains
     chain_hash = {}
-    @base_url = 'https://pokeapi.co/api/v2'
     (1..470).to_a.each do |evolution_id|
       response = RestClient.get("#{@base_url}/evolution-chain/#{evolution_id}") { |response, request, result, &block|
         case response.code
@@ -94,19 +92,12 @@ class CreateFromPokeapi
   end
 
   def associate_pokemon_to_chain(chain_hash, chain_instance)
-    #{first: [..]. second: [..], third: [..]}
-    # {"first"=>["bulbasaur"], "second"=>["ivysaur"], "third"=>["venusaur"]}
-    @counter = 1 unless @counter
-    puts @counter
-    puts chain_hash
     chain_hash.each_value do |pokemon_array_in_level|
       if pokemon_array_in_level.present?
         pokemon_array_in_level.each do |species_name|
-          # pokeapi inconsistent naming. deoxys => deoxys-normal
           Pokemon.find_by(species: species_name).update(evolution_chain: chain_instance)
         end
       end
     end
-    @counter += 1
   end
 end

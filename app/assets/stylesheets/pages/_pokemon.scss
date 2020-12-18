@@ -128,20 +128,20 @@ body {
   color: white;
   text-shadow: 1px 1px 1px #A8A8A8;
 }
-
 .column-first {
   display: flex;
   justify-content: center;
 }
+
 .column-second {
   display: flex;
-  width: 400px;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
 .column-third {
   display: flex;
-  width: 400px;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -149,9 +149,6 @@ body {
 @media (max-width: 400px) {
   #sprite-half {
     height: 150px;
-  }
-  .evolution-content {
-
   }
 
   #info-half {

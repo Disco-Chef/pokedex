@@ -35,7 +35,6 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 let myStorage = window.sessionStorage;
-console.log(myStorage);
 
 const setFavoritesArray = () => {
   let favoritesArray;
@@ -76,7 +75,6 @@ const setFavoriteButtonType = () => {
       }
     }
     else {
-      console.log(setFavoritesArray());
       elementPokemonId.forEach((heartIcon) => {
         if (favoritesArray.includes(heartIcon.dataset.pokemonId)) {
           addFavoriteStyle(heartIcon)
@@ -87,14 +85,12 @@ const setFavoriteButtonType = () => {
 }
 
 const toggleFavorite = (event) => {
-  console.log("Event Triggered! 😉")
   let favoritesArray = setFavoritesArray();
   let pokemonId = event.currentTarget.dataset.pokemonId;
   if (!myStorage.favorites) {
     myStorage.favorites = pokemonId;
     addFavoriteStyle(event.currentTarget);
     setFavoriteButtonType();
-    console.log(myStorage.favorites);
   }
   else if (myStorage.favorites && favoritesArray.includes(pokemonId)) {
     let favoriteToRemoveIndex = favoritesArray.indexOf(pokemonId);
@@ -102,13 +98,11 @@ const toggleFavorite = (event) => {
     myStorage.favorites = favoritesArray.join(",");
     removeFavoriteStyle(event.currentTarget);
     setFavoriteButtonType();
-    console.log(myStorage.favorites);
   }
   else if (myStorage.favorites && !favoritesArray.includes(pokemonId)) {
     myStorage.favorites += `,${pokemonId}`;
     addFavoriteStyle(event.currentTarget);
     setFavoriteButtonType();
-    console.log(myStorage.favorites);
   } 
 }
 
