@@ -33,7 +33,6 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'rest-client'
 gem 'turbolinks_render'
-gem 'pg_search', '~> 2.3.0'
 
 group :development, :test do
   gem 'pry-byebug'
